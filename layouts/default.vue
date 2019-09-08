@@ -1,74 +1,25 @@
 <template>
-  <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a
-          class="navbar-item"
-          href="/"
-        >
-          <img
-            src="~assets/buefy.png"
-            alt="Buefy"
-            height="28"
-          >
-        </a>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
-
-    <section class="main-content columns">
-      <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">
-          General
-        </p>
-        <ul class="menu-list">
-          <li
-            v-for="(item, key) of items"
-            :key="key"
-          >
-            <nuxt-link
-              :to="item.to"
-              exact-active-class="is-active"
-            >
-              <b-icon :icon="item.icon" /> {{ item.title }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </aside>
-
-      <div class="container column is-10">
-        <nuxt />
-      </div>
-    </section>
+  <div class="main">
+    <Header />
+    <nuxt />
+    <Footer />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script
+      id="snipcart"
+      src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"
+      data-api-key="MjhmYTljNzktODk4Mi00ZTJjLThjODUtMDVlNWRiMDVmZTA4NjM2Mjc3MTY1MzczNzc3NDM5"
+    ></script>
   </div>
 </template>
 
 <script>
+import Header from "~/components/Header.vue";
+import Footer from "~/components/Footer.vue";
+
 export default {
-  data () {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
-    }
+  components: {
+    Header,
+    Footer
   }
-}
+};
 </script>
