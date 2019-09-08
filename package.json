@@ -1,0 +1,23 @@
+{
+  "name": "snipcart-nuxt-pwa",
+  "version": "1.0.0",
+  "description": "Snipcart Nuxt PWA",
+  "author": "Stephen Bau",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0"
+  }
+}
