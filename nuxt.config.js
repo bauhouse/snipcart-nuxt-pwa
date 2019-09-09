@@ -1,4 +1,5 @@
 var path = require('path');
+import articles from "./contents/journal/articles.js"
 
 export default {
   mode: 'universal',
@@ -66,5 +67,45 @@ export default {
         include: path.resolve(__dirname, 'contents'),
       })
     }
+  },
+  /*
+  ** Overwrite's generated manifest values
+  */
+  manifest: {
+    name: 'Nuxt.js PWA store',
+    short_name: 'Nuxt.js PWA',
+    lang: 'en',
+    display: 'standalone',
+  },
+  /*
+  ** Generate dynamic routes
+  */
+  generate: {
+    fallback: true,
+    routes: [].concat(articles.map(article => `journal/${article}`))
+  },
+  /*
+  ** Handle external assets
+  */
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://fonts.googleapis.com/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: 'https://fonts.gstatic.com/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: 'https://cdn.snipcart.com/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      }
+    ]
   }
 }
