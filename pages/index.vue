@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import articles from '~/contents/journal/journal.js'
+import articles from '~/contents/journal/articles.js'
 
 export default {
   async asyncData ({ route }) {
